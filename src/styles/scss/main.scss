@@ -2,7 +2,22 @@ $primary-color: #EAECDE;
 $secondary-color : #F7F8F2;
 $secondary-dark-color :#7A7D6C; 
 
+
+
 body{
-    background-color: $secondary-dark-color;
-    font-size: 100px;
+    margin: 0;
+}
+
+.black-bar{
+    background-color: black;
+    color: gainsboro;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 7px 0 7px 0px;
+}
+
+.top-bar{
+    
 }
