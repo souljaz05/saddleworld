@@ -2,13 +2,23 @@ $primary-color: #EAECDE;
 $secondary-color : #F7F8F2;
 $secondary-dark-color :#7A7D6C; 
 
-
-
-body{
-    margin: 0;
+@mixin inline-list{
+    ul{
+        list-style-type: none;
+        margin: 0;
+        li {
+            display: inline-block;
+            padding-left: 2vw;
+            a{
+                text-decoration: none;
+                color: black;
+                font-family: 'Montserrat', sans-serif;
+                text-align: center;             
+            }
+        }
+    }
 }
-
-.black-bar{
+@mixin black-bar {
     background-color: black;
     color: gainsboro;
     font-family: 'Montserrat', sans-serif;
@@ -18,6 +28,88 @@ body{
     padding: 7px 0 7px 0px;
 }
 
-.top-bar{
-    
+body{
+    margin: 0;
 }
+h5{
+    margin: 0;
+}
+
+.shipping-bar{
+    @include black-bar;
+}
+
+.top-bar{
+    background-color: $secondary-color;
+    padding-bottom: 0.5vh;
+    padding-top: 0.3vh;
+
+    .top-bar-items-container{
+        width: 70%;
+        margin: auto;
+        display: flex;
+        #logo{
+            margin-top: 1vh;
+        }
+        .right-container{
+             width :100%;
+            .contact-container{
+              justify-content: flex-end;
+               display: flex;
+                #address{
+                    margin-right: 3vw;
+                }
+                p{
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                }
+            }
+            .search-link-container{
+                display: flex;
+                justify-content: flex-end;
+                
+                .search-bar-container{
+                    margin-top: 2vh;
+                    display: flex;
+                    height: 45px;
+                    input{
+                        width: 16vw;
+                        padding: 1vh 0.5vw 1vh 0.5vw;
+                        margin-right: 1vw;
+                        font-size: 1rem;
+                        font-family: 'Montserrat', sans-serif;
+                     }  
+                }     
+                .quick-links{
+                    @include inline-list;
+                    ul{
+                        margin-bottom: 1.5vh;
+                    }
+                    #my-account{
+                        margin-left: 0.6vw;
+                    }
+                }
+            }
+        }   
+    }
+}
+nav{
+    @include inline-list;
+    .nav-item{
+        align-content: center;
+    }
+    .nav-link{
+        background-color: $secondary-color;
+    }
+    .nav-contact{
+        background-color: black;
+       a{
+           h5{
+               color: white;
+           }
+       }
+    }
+}
+
+
