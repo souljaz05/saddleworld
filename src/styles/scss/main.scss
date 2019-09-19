@@ -1,9 +1,20 @@
 $primary-color: #EAECDE;
 $secondary-color : #F7F8F2;
 $secondary-dark-color :#7A7D6C; 
+$black-bgr: #1E1E1E;
+$border-color: #dce8e7;
+$blue-hue :	#EFF3FC;
+
+.primary-bgr{
+    background-color: $primary-color;
+}
+.black-bgr{
+    background-color:$black-bgr;
+    color: white;
+}
 
 @mixin inline-list{
-    display: flex;
+    display:flex;
     ul{
         list-style-type: none;
         margin: 0;
@@ -20,7 +31,7 @@ $secondary-dark-color :#7A7D6C;
     }
 }
 @mixin black-bar {
-    background-color: black;
+    background-color: $black-bgr;
     color: gainsboro;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
@@ -29,16 +40,86 @@ $secondary-dark-color :#7A7D6C;
     padding: 7px 0 7px 0px;
 }
 
+
+
+@mixin row-center{
+    width: 70%;
+    margin:auto;
+    
+}
+
 body{
     margin: 0;
 }
 h5{
     margin: 0;
 }
+.saddle-profile{
+    font-family: 'Montserrat',sans-serif;
+    margin: 2vh 1vw 2vh 1vw;
+}
+
+.row{
+    display: flex;
+    width: 100%;
+}
+
+.column-half{
+    width: 50%;
+    display:block;
+    text-align: left;
+    padding-right: 5vw;
+    justify-content: flex-start;
+}
+
+.column-7{
+    width: 70%;
+}
+column-3{
+    width: 30%;
+}
+
+#horse-img{
+    margin-left: 2vw;
+    margin-top: 20vh;
+}
+
+.line-through-text {
+   width: 100%; 
+   text-align: center; 
+   border-bottom: 2px solid $black-bgr; 
+   line-height: 0.1em;
+   margin: 10vh 0 7vh; 
+   
+   span{
+     background:#fff; 
+     padding: 0 2vw 0 2vw;
+     font-family: 'Montserrat', sans-serif;
+    }
+}
+.enquire-container{
+    margin-top: 10vh;
+}
+
+.center-element{
+    justify-content: center;
+    align-content: center;
+    display: flex;
+}
+.black-btn{
+    background-color: $black-bgr;
+    color:white;
+    border: none;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    padding: 1.2vh 3.5vw 1.2vh 3.5vw;
+   justify-content: center;
+}
 
 .shipping-bar{
     @include black-bar;
 }
+
 
 .top-bar{
     background-color: $secondary-color;
@@ -99,21 +180,23 @@ h5{
     }
 }
 nav{
-
+    width: 100%;
     @include inline-list;
-
     ul{
+        display: flex;
         padding:0;
         .space{
-            width: 5vw;
-            height: auto;
-            background-color: $primary-color;
+            width: 191px;
+        }
+        .active{
+            background-color: white;
         }
     }
 
  
     .nav-item{
         align-content: center;
+        margin: 0 0.05vw 0 0.05vw;
         a{ 
             padding:0.5vh 2vw 0.5vh 1vw;
             display: flex;
@@ -135,9 +218,9 @@ nav{
         background-color: $primary-color;
     }
     .nav-contact{
-        background-color: black;
-       a{
-           
+        background-color: $black-bgr;
+       a{ 
+           padding: 0.5vh 0.8vw 0.5vh 0.8vw;
            h5{
                color: white;
            }
@@ -145,10 +228,170 @@ nav{
     }
 }
 
+main{
+    @include row-center;
+    #saddle-fit{
+        margin-top: 10vh;
+        h2{
+            font-family :'Open Sans', sans-serif;
+         }
+         h4{
+            font-family :'Oswald', sans-serif;
+         }
+         p{
+            font-family :'Montserrat', sans-serif;
+         }
+    }
+
+    .fitter-profiles{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        h4{
+            font-family :'Montserrat', sans-serif;
+        }
+        a{
+            text-decoration: none;
+            color: white
+        }
+        .profile-template{
+            padding: 1vh 1vw 1vh 1vw;
+        }
+    }
+
+    #booking-container{
+        @mixin input-style {
+            width: 100%;
+            border-style: solid;
+            border-color: $border-color;
+            margin-top: 2vh;
+            padding: 2vh 1vw 2vh 1vw;
+        }
+
+     
+     
+        .row{
+            width: 60%;
+            margin: auto;
+            margin-bottom: 4vh;
+            .column-half{
+                width: 50%;
+                display:block;
+                text-align: left;
+                padding-right: 5vw;
+                justify-content: flex-start;
+            }
+            .column-full{
+                width: 100%;
+                padding-right: 5vw;
+                text-align: left;
+            }
+        }
+
+
+        label{
+            width: 100%;
+            font-family: 'Montserrat', sans-serif;
+
+            
+        }
+        input{
+            @include input-style;
+        }
+        textarea{
+            @include input-style;
+        }
+
+        p{
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 450;
+            font-size: 0.8rem;
+        }
+    }
+
+        
+
+}
+
+
 footer{
     .signup-news{
         @include black-bar;
+        position: relative;
+        padding-bottom: 5vh;
+
+        .input-text{
+            padding: 2vh 2vw 2vh 0.5vw;
+            width: 15vw;
+            border: none;
+        }
+        .email-btn{
+            border: none;
+            padding: 2vh 2vw 2vh 2vw;
+            background-color: $primary-color;
+        }
     }
+    .background{
+      position: absolute;
+      width: 100%;
+    }
+    #sitemap-links{
+        display:flex;
+        width:70%;
+        margin:auto;
+        .container{
+            margin-right: 10vw;
+            h2{
+                font-family :'Montserrat', sans-serif;
+                font-size: 0.9rem;
+                margin: 3vh 0 0.5vh 0;
+             }
+            ul{
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                li{
+                    padding-bottom: 0.3vh;
+                    a{
+                        text-decoration: none;
+                        font-family :'Open Sans', sans-serif;
+                        font-size: 0.8rem;
+                        color:$secondary-dark-color;
+                    }
+                }
+            }
+        }
+     }
+     #bottom-logo{
+         background-color: $secondary-dark-color;
+         img{
+            margin:5vh 0 2vh 30vw;
+         }
+     }
+     .foreground{
+        position: absolute;
+        float: right;
+        z-index: 1;
+        justify-content: right;
+        margin-left: 70vw;
+     }
+     #customer-service{
+         padding: 1vh 2vw 1vh 2vw;
+         background-color: $blue-hue;
+         justify-content: flex-end;
+         h3{
+            font-family :'Montserrat', sans-serif;
+         }
+         h4{
+            font-family :'Open Sans', sans-serif;
+         }
+         p{
+            font-family :'Open Sans', sans-serif;
+         }
+
+     }
+
 }
+
 
 
